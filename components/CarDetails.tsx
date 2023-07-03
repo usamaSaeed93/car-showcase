@@ -1,12 +1,17 @@
+'use client'
 import React from 'react'
+import { useState,useEffect } from 'react'
 import { carDetailsInterface } from '.'
 import Image from 'next/image'
 import hero from '../public/hero.png'
 import {getCarImages} from '../components/Request'
 export default async function CarDetails({details}:carDetailsInterface ) {
-  const entries = Object.entries(details);
-  const res = await getCarImages("nissan");
-  console.log(res);
+  const [images,setImages]=useState();
+  useEffect(()=>{
+    const res = getCarImages("nissan");
+    console.log(res);
+    const entries = Object.entries(details);
+  },[])
   return (
   <div>
    <Image 

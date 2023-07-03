@@ -20,7 +20,7 @@ interface roughProp {
   thumb: string
   
 }
-// Modal.setAppElement(document.body);
+Modal.setAppElement(document.body);
 const CarCard = ({ car }: CarCardProps) => {
   const { city_mpg, year, make, model, transmission, drive } = car;
   const [modalIsOpen, setModalIsOpen] = useState(false);

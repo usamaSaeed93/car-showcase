@@ -6,7 +6,7 @@ import CustomButton from './CustomButton'
 const SignIn=()=>{
 
 }
-function Navbar() {
+export default function Navbar() {
   return (
     <div className='flex justify-evenly align-middle '>
 <Image 
@@ -20,4 +20,4 @@ className='p-10 '
   )
 }
 
-export default Navbar
+   

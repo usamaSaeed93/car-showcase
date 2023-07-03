@@ -2,9 +2,11 @@ import React from 'react'
 import { carDetailsInterface } from '.'
 import Image from 'next/image'
 import hero from '../public/hero.png'
-export default function CarDetails({details}:carDetailsInterface ) {
+import {getCarImages} from '../components/Request'
+export default async function CarDetails({details}:carDetailsInterface ) {
   const entries = Object.entries(details);
-  console.log(entries);
+  const res = await getCarImages("nissan");
+  console.log(res);
   return (
   <div>
    <Image 

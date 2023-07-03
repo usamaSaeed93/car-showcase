@@ -5,7 +5,6 @@ import Image from 'next/image'
 import hero_Image from '../public/hero.png'
 export default function Hero() {
     const handleEvent=()=>{
-
     }
   return (
     <div className='hero'>

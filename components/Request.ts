@@ -1,23 +1,23 @@
 import axios from 'axios';
-
-
 export const getCars=async (carMake:string,carModal:string)=>{
-  const options = {
-    method: 'GET',
-    url: 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?modal=corolla',
-    params: {model: carModal , make:carMake || ""},
-    headers: {
-      'X-RapidAPI-Key': "538ade6eefmsh16448dfc43f6e45p1a22abjsn47ddeca3466b",
-      'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
-    }
-  };
-    try {
-        const response = await axios.request(options);
-     return response.data;
-    } catch (error) {
-        console.error(error);
-    }
+  const url = `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${carModal}`;
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '538ade6eefmsh16448dfc43f6e45p1a22abjsn47ddeca3466b',
+		'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.json();
+	return result;
+} catch (error) {
+	console.error(error);
 }
+}
+
 export const calculateRent=(milage:number ,year:number)=>{
  if(year>1990 && year<2000)
  return milage*270;
@@ -36,11 +36,11 @@ export const calculateRent=(milage:number ,year:number)=>{
     const url = `https://api.unsplash.com/search/photos?query=${carName}&client_id=${accessKey}`;
   
     try {
-      const response = await axios.get(url);
-      const data = response.data;
-  
-      if (data.results.length > 0) {
-      return data;
+      const response = await fetch(url);
+      const result = await response.json();
+      
+      if (result.results.length > 0) {
+      return result;
       } else {
         console.log('No results found.');
       }

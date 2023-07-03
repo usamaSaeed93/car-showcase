@@ -32,10 +32,10 @@ const CarCard = ({ car }: CarCardProps) => {
   const closeModal = () => {
     setModalIsOpen(false);
   };
-  const [images, setCarImages] = useState <Array<object>>();
-  useEffect(() => {
-    getCarImages("Toyota").then(res => setCarImages( res.results));
-  }, [])
+  // const [images, setCarImages] = useState <Array<object>>();
+  // useEffect(() => {
+  //   getCarImages("Toyota").then(res => setCarImages( res.results));
+  // }, [])
   // console.log(images)
   return (
     <>

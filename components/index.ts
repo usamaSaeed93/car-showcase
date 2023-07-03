@@ -21,6 +21,5 @@ export interface carsDataInterface{
 }
 
 export interface carDetailsInterface{
-  
-    details:object
+ details:object
 }

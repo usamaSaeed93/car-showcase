@@ -1,13 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Image from "next/image";
 import { carsDataInterface } from ".";
-import CustomButton from "./CustomButton";
 import { calculateRent } from "./Request";
 import heroImg from '../public/hero.png'
 import CarDetails from "./CarDetails";
 import Modal from 'react-modal';
-import { getCarImages } from "./Request";
 interface CarCardProps {
   car: carsDataInterface;
 }
@@ -20,7 +18,6 @@ interface roughProp {
   thumb: string
   
 }
-Modal.setAppElement(document.body);
 const CarCard = ({ car }: CarCardProps) => {
   const { city_mpg, year, make, model, transmission, drive } = car;
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -32,11 +29,6 @@ const CarCard = ({ car }: CarCardProps) => {
   const closeModal = () => {
     setModalIsOpen(false);
   };
-  // const [images, setCarImages] = useState <Array<object>>();
-  // useEffect(() => {
-  //   getCarImages("Toyota").then(res => setCarImages( res.results));
-  // }, [])
-  // console.log(images)
   return (
     <>
       <div className="car-card group">
